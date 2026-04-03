@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Warga RW13 - Informasi Terpadu</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <header>
+      <nav>
+        <div class="logo"><i class="fas fa-house-user"></i> RW13 Digital</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#info">Informasi</a></li>
+          <li><a href="#stats">Statistik</a></li>
+          <li><a href="#contact">Kontak</a></li>
+          <li>
+            <a href="login.php"><i class="fas fa-user-shield"></i> Admin</a>
+          </li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Portal Informasi Warga RW13</h1>
+        <p>
+          Membangun kerukunan dan kemajuan bersama melalui keterbukaan informasi
+          dan kolaborasi antar warga.
+        </p>
+        <a href="#info" class="cta-button">Jelajahi Sekarang</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <section id="info">
+        <h2>Informasi Terkini</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Kegiatan RW13</h3>
+            <p>
+              Jadwal kegiatan sosial, gotong royong, dan pertemuan rutin warga
+              di lingkungan RW13.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fas fa-trophy"></i>
+            <h3>Prestasi RW13</h3>
+            <p>
+              Catatan prestasi dan penghargaan yang diraih oleh warga RW13 dalam
+              berbagai bidang.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Informasi RW13</h3>
+            <p>
+              Pengumuman penting, berita lingkungan, dan informasi administratif
+              bagi seluruh warga.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats">
+        <h2>Statistik RW13</h2>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-number" data-target="1250">0</span>
+            <span>Jumlah Warga</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="300">0</span>
+            <span>Jumlah KK</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="45">0</span>
+            <span>Jumlah UMKM</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="12">0</span>
+            <span>Fasum/Fasos</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="complaints-section">
+        <div class="section-header-admin">
+          <h2>Keluhan & Aspirasi Warga</h2>
+        </div>
+
+        <div id="complaints-container" class="complaints-list">
+          <!-- Keluhan akan muncul di sini via JavaScript -->
+        </div>
+      </section>
+    </div>
+
+    <footer id="contact">
+      <div class="container">
+        <h3>Hubungi Kami</h3>
+        <div class="contact-grid">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.018731174965!2d106.78333007584105!3d-6.128227593858631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1df8a1353181%3A0x95971485c2c7f66a!2sSekretariat%20RW%20013%20Pejagalan!5e0!3m2!1sid!2sid!4v1712071200000!5m2!1sid!2sid"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <a
+              href="https://maps.app.goo.gl/BEw8KQzqiegbJRbQ9"
+              target="_blank"
+              class="map-link-btn">
+              <i class="fas fa-directions"></i> Petunjuk Arah
+            </a>
+          </div>
+
+          <form id="complaintForm" class="contact-form">
+            <input
+              type="text"
+              id="formName"
+              placeholder="Nama Lengkap"
+              required />
+            <input
+              type="email"
+              id="formEmail"
+              placeholder="Alamat Email"
+              required />
+            <input
+              type="tel"
+              id="formWhatsapp"
+              placeholder="Nomor WhatsApp (Contoh: 08123456789)" />
+            <select id="formCategory" required>
+              <option value="" disabled selected>Pilih Kategori Keluhan</option>
+              <option value="Keamanan">Keamanan</option>
+              <option value="Kebersihan">Kebersihan</option>
+              <option value="Infrastruktur">Infrastruktur</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+            <textarea
+              id="formMessage"
+              placeholder="Pesan/Keluhan Anda"
+              rows="5"
+              maxlength="500"
+              required></textarea>
+            <div id="charCount" class="char-count">0 / 500</div>
+            <button type="submit" class="submit-btn">Kirim Pesan</button>
+          </form>
+        </div>
+        <p>Email: sekretariat@rw13.id | Telp: +62 812-3456-7890</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/6281234567890" aria-label="WhatsApp"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+        </div>
+        <p>&copy; 2024 Pengurus RW13 Digital. Semua hak dilindungi.</p>
+        <div style="margin-top: 1rem">
+          <a
+            href="login.php"
+            style="
+              color: var(--text-muted);
+              font-size: 0.75rem;
+              text-decoration: none;
+              opacity: 0.5;
+            "
+            >Login Admin</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Scroll to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
